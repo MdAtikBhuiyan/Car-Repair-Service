@@ -1,0 +1,21 @@
+/* .manage-service {
+    background: #f4f7fc;
+    min-height: 100vh;
+    display: block;
+    overflow: hidden;
+    padding-top: 30px;
+}
+.manage-service-table{
+    padding: 30px 60px;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px 1px lightgray;
+} */
+button.btn.delete-btn {
+    background: #ff0000c7;
+    color: white;
+    font-size: 14px;
+}

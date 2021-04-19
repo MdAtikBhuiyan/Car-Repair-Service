@@ -1,0 +1,39 @@
+.bookDetails{
+    box-shadow: 0px 0px 14px 1px #f9d842;
+    border-radius: 6px;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, .02);
+    width: 95%;
+    margin: 25px 0;
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+}
+.details-top{
+    display: flex;
+    justify-content: space-between;
+}
+.details-top img{
+    height: 50px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.bookDetails h3{
+    color: #F77F00;
+    font-weight: 600;
+    margin: 25px 0 15px;
+}
+.bookDetails h4{
+    color: #3a3a3a;
+    font-weight: 500;
+}
+.details-top span {
+    background-color: #fbeca8db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: red;
+}

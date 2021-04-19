@@ -1,0 +1,49 @@
+.footer-area{
+    background: linear-gradient(rgba(0,46,73,0.6),rgba(0,46,73,0.6)),url('../../../images/footer-bg.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 80px;
+    font-family: 'Poppins',sans-serif;
+}
+.footer-area p{
+   color: white;
+   margin: 20px 0;
+}
+.footer-area img{
+    height: 60px ;
+}
+
+.footer-social span a{
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 6px;
+    margin-right: 6px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: black;
+    transition: .4s;
+}
+.footer-social span a:hover{
+    text-decoration: none;
+    background: #FFD100;
+    color: #fff;
+}
+.items{
+    color: white;
+}
+.footer-area h4{
+    color: white;
+    margin-bottom: 22px;
+}
+.footer-area ul li a{
+    display: inline-block;
+    color: white;
+    margin: 10px 0;
+}
+.copy-right{
+    background: #003049;
+    padding: 5px 0;
+}

@@ -1,0 +1,32 @@
+.sidebar{
+    background: #1b3748eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    overflow: hidden !important;
+}
+.sidebar img{
+    height: 50px;
+    margin-bottom: 50px;
+}
+.sidebar a{
+    text-decoration: none;
+}
+.sidebar li a{
+    margin-bottom: 2em;
+    display: inline-block;
+    text-decoration: none;
+}
+.sidebar svg{
+    margin-right: 5px;
+}
+.sidebar li:hover a{
+    text-decoration: none;
+    color: #FFD100 !important;
+}
+.sidebar li a:focus,
+.sidebar li a:active{
+    color: #FFD100 !important;
+}

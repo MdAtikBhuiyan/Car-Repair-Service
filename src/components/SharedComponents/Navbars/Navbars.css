@@ -1,0 +1,18 @@
+.nav-link{
+    border-bottom: 2px solid transparent;
+    font-weight: 400;
+    margin: 0 10px !important;
+    width: fit-content;
+    transition: .4s;
+}
+.nav-link:hover{
+    border-bottom: 2px solid #FFD100;
+    color: #FFD100 !important;
+}
+.navbar-brand img{
+    height: 60px;
+}
+.navbar-light .navbar-toggler {
+    border: none !important;
+
+}

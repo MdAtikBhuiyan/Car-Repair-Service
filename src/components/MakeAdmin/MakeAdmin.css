@@ -1,0 +1,10 @@
+
+.make-admin-form label{
+    margin-top: 10px;
+    color: #003049 ;
+    font-family: 'Poppins',sans-serif !important;
+}
+.make-admin-form form{
+    width: 80%;
+    margin: auto;
+}

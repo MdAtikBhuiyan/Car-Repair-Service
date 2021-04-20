@@ -56,6 +56,11 @@ select.form-control {
   height: 45px;
   border-radius: 50%;
 }
+.spinner-box{
+  position: absolute;
+  left: 40%;
+  top: 10%;
+}
 
 .App-link {
   color: #61dafb;

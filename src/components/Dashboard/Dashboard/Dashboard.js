@@ -17,15 +17,20 @@ const Dashboard = () => {
   const { url, path } = useRouteMatch();
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  const [admin, setAdmin] = useState()
+  const [admin, setAdmin] = useState(null)
+  const [spinner, setSpinner] = useState(false);
+
   useEffect(() => {
-    fetch('https://frozen-atoll-81810.herokuapp.com/isDoctor', {
+    fetch('https://ancient-forest-25718.herokuapp.com/isAdmin', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ email: loggedInUser.email })
     })
       .then(res => res.json())
-      .then(data => setAdmin(data))
+      .then(data => {
+        setAdmin(data);
+        setSpinner(true);
+      })
   }, [])
 
   return (
@@ -35,61 +40,83 @@ const Dashboard = () => {
         <Col md={2} className='pl-0 pr-0 support-bg'>
           <Sidebar url={url} path={path}></Sidebar>
         </Col>
+
         <Col md={10} className='pl-0 pr-0'>
-          <div className="user-area">
-            <img src={loggedInUser?.photoURL} alt=""/>
-            <h5>{loggedInUser.name}</h5>
-          </div>
-          <Switch>
 
-            <Route path={`${path}/addService`}>
-              <AddService></AddService>
-            </Route>
-            <Route path={`${path}/manageService`}>
-              <ManageService></ManageService>
-            </Route>
-            <Route path={`${path}/makeAdmin`}>
-              <MakeAdmin></MakeAdmin>
-            </Route>
-            <PrivateRoute path={`${path}/customerReview`}>
-              <CustomerGivenReview></CustomerGivenReview>
-            </PrivateRoute>
+          {
+            spinner ?
+              <>
 
-            <PrivateRoute path={`${path}/bookingList`}>
-              <ShowBookList></ShowBookList>
-            </PrivateRoute>
+                <div className="user-area">
+                  <img src={loggedInUser?.photoURL} alt="" />
+                  <h5>{loggedInUser.name}</h5>
+                </div>
+                <Switch>
 
-            <PrivateRoute path={`${path}/orderList`}>
-              <OrderList></OrderList>
-            </PrivateRoute>
-
-            {
-              admin ?
-                <>
-                  <PrivateRoute path={`${path}/:id`}>
+                  <Route path={`${path}/addService`}>
                     <AddService></AddService>
+                  </Route>
+                  <Route path={`${path}/manageService`}>
+                    <ManageService></ManageService>
+                  </Route>
+                  <Route path={`${path}/makeAdmin`}>
+                    <MakeAdmin></MakeAdmin>
+                  </Route>
+                  <PrivateRoute path={`${path}/customerReview`}>
+                    <CustomerGivenReview></CustomerGivenReview>
                   </PrivateRoute>
-                  <PrivateRoute exact path={path}>
-                    <AddService></AddService>
+
+                  <PrivateRoute path={`${path}/bookingList`}>
+                    <ShowBookList></ShowBookList>
                   </PrivateRoute>
-                </>
-                :
 
-                <>
-                  <PrivateRoute path={`${path}/:id`}>
-                    <Book></Book>
+                  <PrivateRoute path={`${path}/orderList`}>
+                    <OrderList></OrderList>
                   </PrivateRoute>
-                  <PrivateRoute exact path={path}>
-                    <Book></Book>
-                  </PrivateRoute>
-                </>
 
-            }
+                  {
+                    admin &&
+                    <>
+                      <PrivateRoute path={`${path}/:id`}>
+                        <AddService></AddService>
+                      </PrivateRoute>
+                      <PrivateRoute exact path={path}>
+                        <AddService></AddService>
+                      </PrivateRoute>
+                    </>
+                  }
 
+                  {
+                    admin ||
+                    <>
+                      <PrivateRoute path={`${path}/:id`}>
+                        <Book></Book>
+                      </PrivateRoute>
+                      <PrivateRoute exact path={path}>
+                        <Book></Book>
+                      </PrivateRoute>
+                    </>
 
+                  }
 
-          </Switch>
+                </Switch>
+              </>
+              :
+              <div className='spinner-box'>
+                <div class="spinner-grow text-danger mx-2" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-warning mx-2" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-success mx-2" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+
+          }
         </Col>
+
       </Row>
     </section>
 

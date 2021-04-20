@@ -26,7 +26,7 @@ const Review = () => {
     const options = {
         responsiveClass: true,
         nav: true,
-        autoplay: false,
+        autoplay: true,
         loop: true,
         dots: true,
         smartSpeed: 1000,

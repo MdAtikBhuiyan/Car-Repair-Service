@@ -5,7 +5,7 @@
 .owl-carousel .owl-nav button.owl-next{
     position: absolute;
     bottom: 45%;
-    right: 0;  
+    right: 35px;  
     color: #F77F00 !important;
     font-size: 60px !important;
 }
@@ -25,6 +25,9 @@
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #F77F00 !important;
+}
+.owl-carousel .owl-stage-outer {
+    left: -18px;
 }
 /* carousel end */
 .users p{

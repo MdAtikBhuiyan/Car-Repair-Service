@@ -46,6 +46,7 @@
     box-shadow: 0px 0px 12px 1px #f5e162;
     border-radius: 90px 0px 90px 0px;
     transition: .5s;
+    margin: auto;
 }
 .team-member:hover{
     background-color: #E98323;

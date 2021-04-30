@@ -8,7 +8,7 @@ const TeamMember = ({ team }) => {
     const { name, designation, img, id } = team;
 
     return (
-        <Col md={4}>
+        <Col lg={4} md={6} sm={6}>
             <div className="team-member my-4">
                 <div className="membr-img">
                     <img src={img} alt="" />

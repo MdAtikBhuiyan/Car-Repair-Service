@@ -75,7 +75,7 @@ const Dashboard = () => {
                   </PrivateRoute>
 
                   {
-                    admin &&
+                    admin === true &&
                     <>
                       <PrivateRoute path={`${path}/:id`}>
                         <AddService></AddService>
@@ -87,7 +87,7 @@ const Dashboard = () => {
                   }
 
                   {
-                    admin ||
+                    admin === false &&
                     <>
                       <PrivateRoute path={`${path}/:id`}>
                         <Book></Book>

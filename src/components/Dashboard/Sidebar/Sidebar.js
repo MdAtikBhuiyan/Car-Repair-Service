@@ -11,7 +11,7 @@ const Sidebar = ({ url, path }) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const [admin, setAdmin] = useState(null);
-   
+
     useEffect(() => {
         fetch('https://ancient-forest-25718.herokuapp.com/isAdmin', {
             method: 'POST',
@@ -30,7 +30,7 @@ const Sidebar = ({ url, path }) => {
             <ul className='list-unstyled'>
 
                 {
-                    admin &&
+                    admin === true &&
                     <>
                         <li>
                             <Link to='/dashboard/orderList' className='text-white'>
@@ -54,7 +54,8 @@ const Sidebar = ({ url, path }) => {
                         </li>
                     </>
                 }
-                { admin ||
+                
+                {admin === false &&
                     <>
                         <li>
                             <Link to={`${url}/book`} className='text-white'>

@@ -11,19 +11,21 @@ const Book = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const [service, setService] = useState({});
+    const [bookInfo, setBookInfo] = useState({})
     useEffect(() => {
 
         fetch(`https://ancient-forest-25718.herokuapp.com/book/${id}`)
             .then(res => res.json())
-            .then(data => setService(data))
+            .then(data => {
+                setService(data)
+            })
     }, [])
 
-    const { title, price } = service;
     const { name, email } = loggedInUser;
 
     const [bookIn, setBookIn] = useState(true);
 
-    const [bookInfo, setBookInfo] = useState({})
+
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
@@ -32,15 +34,16 @@ const Book = () => {
         bookData.logInEmail = email;
         bookData.status = 'pending';
         bookData.img = service?.img;
+
         setBookInfo(bookData);
         setBookIn(false)
     };
+    console.log('book info', bookInfo);
+    const handlePaymentSuccess = (paymentId, card) => {
 
-    const handlePaymentSuccess = ( paymentId, card ) => {
-     
-        let bookDetails = {...bookInfo}
+        let bookDetails = { ...bookInfo }
         bookDetails.cards = card;
-        
+
         fetch('https://ancient-forest-25718.herokuapp.com/bookService', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -68,15 +71,17 @@ const Book = () => {
                                     <input defaultValue={email} {...register("email", { required: true })} placeholder='Enter Your Email' className='form-control my-3' />
                                     <p className="text-danger">{errors.email && <span>This field is required</span>}</p>
 
-                                    <input defaultValue={title} {...register("title", { required: true })} placeholder='Enter Service Title' className='form-control my-3' />
+                                    <input defaultValue={service.title} {...register("title", { required: true })} placeholder='Enter Your Name' className='form-control my-3' />
                                     <p className="text-danger">{errors.title && <span>This field is required</span>}</p>
 
-                                    <input defaultValue={price} {...register("price", { required: true })} placeholder='Enter Service Price' className='form-control my-3' />
+                                    <input defaultValue={service.price} {...register("price", { required: true })} placeholder='Enter Your Email' className='form-control my-3' />
                                     <p className="text-danger">{errors.price && <span>This field is required</span>}</p>
 
+                                    
                                     <button className="btn btn-brand mt-2" type="submit" >Booked Service</button>
 
                                 </form>
+                            
                             </div>
 
                         </section>
